@@ -2,5 +2,9 @@
     "name": "com.tdktoolkit.test",
     "displayName": "TDKToolkit",
     "description": "DebugUI",
-    "version": "0.0.0"
+    "version": "0.0.0",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/TheDarkXian/TDKToolkit.git"
+    }
 }

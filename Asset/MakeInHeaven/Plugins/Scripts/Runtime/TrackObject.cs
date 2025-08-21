@@ -1,237 +1,237 @@
-using DG.Tweening;
-using Sirenix.OdinInspector;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-namespace TDKToolkit
-{
+// using DG.Tweening;
+// using Sirenix.OdinInspector;
+// using System.Collections;
+// using System.Collections.Generic;
+// using UnityEngine;
+// namespace TDKToolkit
+// {
 
 
-    /// <summary>
-    /// ÕâÊÇÒ»¸ö¸ú×Ù½Å±¾
-    /// </summary>
-    [ExecuteAlways]
-    public class TrackObject : MonoBehaviour
-    {
-        [SerializeField] bool runInEditor = false;
-        //ÆôÓÃ¶ÔÏó    
-        [SerializeField] Transform _agent;
-        public Transform Agent
-        {
+//     /// <summary>
+//     /// ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ù½Å±ï¿½
+//     /// </summary>
+//     [ExecuteAlways]
+//     public class TrackObject : MonoBehaviour
+//     {
+//         [SerializeField] bool runInEditor = false;
+//         //ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½    
+//         [SerializeField] Transform _agent;
+//         public Transform Agent
+//         {
 
-            get
-            {
-                _agent = _agent ?? this.transform;
-                return _agent;
-            }
-        }
+//             get
+//             {
+//                 _agent = _agent ?? this.transform;
+//                 return _agent;
+//             }
+//         }
 
-        //ÆôÓÃ¸ú×ÙÎ»ÖÃ
-        [FoldoutGroup("Î»ÖÃ¸ú×ÙÉèÖÃ")]
-        public bool trackPos = true;
-        //¸ú×ÙÆ«ÒÆ
-        [FoldoutGroup("Î»ÖÃ¸ú×ÙÉèÖÃ")]
-        [ShowIf("trackPos")]
-        public offseter positionOffset = offseter.one;
-        //¸ú×ÙÄ¿±ê
-        [FoldoutGroup("Î»ÖÃ¸ú×ÙÉèÖÃ")]
-        [ShowIf("trackPos")]
-        public Transform posTarget;
+//         //ï¿½ï¿½ï¿½Ã¸ï¿½ï¿½ï¿½Î»ï¿½ï¿½
+//         [FoldoutGroup("Î»ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
+//         public bool trackPos = true;
+//         //ï¿½ï¿½ï¿½ï¿½Æ«ï¿½ï¿½
+//         [FoldoutGroup("Î»ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
+//         [ShowIf("trackPos")]
+//         public offseter positionOffset = offseter.one;
+//         //ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½
+//         [FoldoutGroup("Î»ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
+//         [ShowIf("trackPos")]
+//         public Transform posTarget;
 
-        [FoldoutGroup("Ðý×ªÉèÖÃ")]
-        public RoateTrackMode roateMode;
-        [FoldoutGroup("Ðý×ªÉèÖÃ")]
-        [HideIf("roateMode", RoateTrackMode.None)]
-        public offseter roateOffset = offseter.one;
-        [FoldoutGroup("Ðý×ªÉèÖÃ")]
-        [ShowIf("roateMode", RoateTrackMode.FaceTarget)]
-        public bool followMainCamera = false;
-        [FoldoutGroup("Ðý×ªÉèÖÃ")]
-        [ShowIf("roateMode", RoateTrackMode.SameWithTarget)]
-        public Transform roateTarget;
-        [FoldoutGroup("Ðý×ªÉèÖÃ")]
-        [ShowIf("@roateMode== RoateTrackMode.FaceTarget&&!followMainCamera")]
-        public Transform faceTarget;
+//         [FoldoutGroup("ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½")]
+//         public RoateTrackMode roateMode;
+//         [FoldoutGroup("ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½")]
+//         [HideIf("roateMode", RoateTrackMode.None)]
+//         public offseter roateOffset = offseter.one;
+//         [FoldoutGroup("ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½")]
+//         [ShowIf("roateMode", RoateTrackMode.FaceTarget)]
+//         public bool followMainCamera = false;
+//         [FoldoutGroup("ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½")]
+//         [ShowIf("roateMode", RoateTrackMode.SameWithTarget)]
+//         public Transform roateTarget;
+//         [FoldoutGroup("ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½")]
+//         [ShowIf("@roateMode== RoateTrackMode.FaceTarget&&!followMainCamera")]
+//         public Transform faceTarget;
 
-        private void Update()
-        {
+//         private void Update()
+//         {
 
-            if (!runInEditor && !Application.isPlaying) { return; }
-            HandlePos();
-            HandleRoate();
+//             if (!runInEditor && !Application.isPlaying) { return; }
+//             HandlePos();
+//             HandleRoate();
 
-        }
+//         }
 
-        void HandlePos()
-        {
+//         void HandlePos()
+//         {
 
-            if (trackPos)
-            {
-                if (posTarget != null)
-                {
-                    Agent.position = posTarget.position;
-                }
-            }
+//             if (trackPos)
+//             {
+//                 if (posTarget != null)
+//                 {
+//                     Agent.position = posTarget.position;
+//                 }
+//             }
 
-        }
+//         }
 
-        void HandleRoate()
-        {
-            switch (roateMode)
-            {
-                case RoateTrackMode.None:
-                    {
+//         void HandleRoate()
+//         {
+//             switch (roateMode)
+//             {
+//                 case RoateTrackMode.None:
+//                     {
 
-                        break;
-                    }
-                case RoateTrackMode.FaceTarget:
-                    {
-                        Transform targetTr = faceTarget;
-                        if (followMainCamera)
-                        {
-                            targetTr = Camera.main.transform;
-                        }
-                        if (targetTr == null) { break; }
+//                         break;
+//                     }
+//                 case RoateTrackMode.FaceTarget:
+//                     {
+//                         Transform targetTr = faceTarget;
+//                         if (followMainCamera)
+//                         {
+//                             targetTr = Camera.main.transform;
+//                         }
+//                         if (targetTr == null) { break; }
 
-                        Vector3 dir = targetTr.position - Agent.position;
-                        if (roateOffset.offsetValue == Vector3.zero) { return; }
-                        dir *= roateOffset;
-                        dir.Normalize();
+//                         Vector3 dir = targetTr.position - Agent.position;
+//                         if (roateOffset.offsetValue == Vector3.zero) { return; }
+//                         dir *= roateOffset;
+//                         dir.Normalize();
 
-                        Vector3 targetEulerAngles = Quaternion.LookRotation(dir).eulerAngles;
+//                         Vector3 targetEulerAngles = Quaternion.LookRotation(dir).eulerAngles;
 
-                        Vector3 newEulerAngles = new Vector3(
-                            roateOffset.x ? targetEulerAngles.x : Agent.eulerAngles.x,
-                            roateOffset.y ? targetEulerAngles.y : Agent.eulerAngles.y,
-                            roateOffset.z ? targetEulerAngles.z : Agent.eulerAngles.z
-                        );
+//                         Vector3 newEulerAngles = new Vector3(
+//                             roateOffset.x ? targetEulerAngles.x : Agent.eulerAngles.x,
+//                             roateOffset.y ? targetEulerAngles.y : Agent.eulerAngles.y,
+//                             roateOffset.z ? targetEulerAngles.z : Agent.eulerAngles.z
+//                         );
 
-                        Agent.eulerAngles = newEulerAngles;
-                        break;
-                    }
+//                         Agent.eulerAngles = newEulerAngles;
+//                         break;
+//                     }
 
-                case RoateTrackMode.SameWithTarget:
-                    {
-                        if (roateTarget == null) { break; }
-                        Agent.eulerAngles = roateOffset + roateTarget.eulerAngles;
-                        break;
-                    }
+//                 case RoateTrackMode.SameWithTarget:
+//                     {
+//                         if (roateTarget == null) { break; }
+//                         Agent.eulerAngles = roateOffset + roateTarget.eulerAngles;
+//                         break;
+//                     }
 
-            }
+//             }
 
-        }
-        [System.Serializable]
-        public struct offseter
-        {
-            [HorizontalGroup]
-            public bool x;
-            [HorizontalGroup]
-            public bool y;
+//         }
+//         [System.Serializable]
+//         public struct offseter
+//         {
+//             [HorizontalGroup]
+//             public bool x;
+//             [HorizontalGroup]
+//             public bool y;
 
-            [HorizontalGroup] public bool z;
-            [SerializeField]
-            Vector3 offsetvalue;
-            public Vector3 offsetValue
-            {
-                get
-                {
-                    return new Vector3(
-                        x ? offsetvalue.x : 0,
-                        y ? offsetvalue.y : 0,
-                        z ? offsetvalue.z : 0
-                    );
-                }
-                set
-                {
-                    offsetvalue = value;
-                }
-            }
+//             [HorizontalGroup] public bool z;
+//             [SerializeField]
+//             Vector3 offsetvalue;
+//             public Vector3 offsetValue
+//             {
+//                 get
+//                 {
+//                     return new Vector3(
+//                         x ? offsetvalue.x : 0,
+//                         y ? offsetvalue.y : 0,
+//                         z ? offsetvalue.z : 0
+//                     );
+//                 }
+//                 set
+//                 {
+//                     offsetvalue = value;
+//                 }
+//             }
 
-            // ÖØÔØ¼Ó·¨²Ù×÷·û
-            public static Vector3 operator +(Vector3 v, offseter o)
-            {
-                return new Vector3(
-                    v.x + (o.x ? o.offsetvalue.x : 0),
-                    v.y + (o.y ? o.offsetvalue.y : 0),
-                    v.z + (o.z ? o.offsetvalue.z : 0)
-                );
-            }
+//             // ï¿½ï¿½ï¿½Ø¼Ó·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//             public static Vector3 operator +(Vector3 v, offseter o)
+//             {
+//                 return new Vector3(
+//                     v.x + (o.x ? o.offsetvalue.x : 0),
+//                     v.y + (o.y ? o.offsetvalue.y : 0),
+//                     v.z + (o.z ? o.offsetvalue.z : 0)
+//                 );
+//             }
 
-            public static Vector3 operator +(offseter o, Vector3 v)
-            {
-                return v + o; // ÀûÓÃÉÏÃæµÄÖØÔØ
-            }
+//             public static Vector3 operator +(offseter o, Vector3 v)
+//             {
+//                 return v + o; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//             }
 
-            public static Vector3 operator *(offseter o, Vector3 v)
-            {
+//             public static Vector3 operator *(offseter o, Vector3 v)
+//             {
 
-                return new Vector3(
-                o.offsetvalue.x * v.x,
-                   o.offsetvalue.y * v.y,
-                      o.offsetvalue.z * v.z
-                );
-            }
-            public static Vector3 operator *(Vector3 v, offseter o)
-            {
+//                 return new Vector3(
+//                 o.offsetvalue.x * v.x,
+//                    o.offsetvalue.y * v.y,
+//                       o.offsetvalue.z * v.z
+//                 );
+//             }
+//             public static Vector3 operator *(Vector3 v, offseter o)
+//             {
 
-                return o * v;
-            }
+//                 return o * v;
+//             }
 
-            public static Vector3 operator *(offseter o, float v)
-            {
+//             public static Vector3 operator *(offseter o, float v)
+//             {
 
-                return new Vector3(
-                o.offsetvalue.x * v,
-                   o.offsetvalue.y * v,
-                      o.offsetvalue.z * v
-                );
-            }
-            public static Vector3 operator *(float v, offseter o)
-            {
+//                 return new Vector3(
+//                 o.offsetvalue.x * v,
+//                    o.offsetvalue.y * v,
+//                       o.offsetvalue.z * v
+//                 );
+//             }
+//             public static Vector3 operator *(float v, offseter o)
+//             {
 
-                return o * v;
-            }
-            public static offseter one
-            {
+//                 return o * v;
+//             }
+//             public static offseter one
+//             {
 
-                get
-                {
-                    offseter temp = new offseter();
-                    temp.offsetValue = Vector3.one;
-                    temp.x = true;
-                    temp.y = true;
-                    temp.z = true;
+//                 get
+//                 {
+//                     offseter temp = new offseter();
+//                     temp.offsetValue = Vector3.one;
+//                     temp.x = true;
+//                     temp.y = true;
+//                     temp.z = true;
 
-                    return temp;
-
-
-                }
-            }
-            public static offseter nOne
-            {
-
-                get
-                {
-                    offseter temp = new offseter();
-                    temp.offsetValue = Vector3.one * -1;
-                    temp.x = true;
-                    temp.y = true;
-                    temp.z = true;
-
-                    return temp;
+//                     return temp;
 
 
-                }
-            }
+//                 }
+//             }
+//             public static offseter nOne
+//             {
 
-        }
+//                 get
+//                 {
+//                     offseter temp = new offseter();
+//                     temp.offsetValue = Vector3.one * -1;
+//                     temp.x = true;
+//                     temp.y = true;
+//                     temp.z = true;
+
+//                     return temp;
 
 
-        public enum RoateTrackMode
-        {
-            None,
-            SameWithTarget,
-            FaceTarget
-        }
-    }
-}
+//                 }
+//             }
+
+//         }
+
+
+//         public enum RoateTrackMode
+//         {
+//             None,
+//             SameWithTarget,
+//             FaceTarget
+//         }
+//     }
+// }

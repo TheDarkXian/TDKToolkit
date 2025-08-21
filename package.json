@@ -1,8 +1,8 @@
 {
-    "name": "com.tdktoolkit.test",
+    "name": "com.tdktoolkit.makeinheaven",
     "displayName": "TDKToolkit",
-    "description": "DebugUI",
-    "version": "0.0.0",
+    "description": "personTest",
+    "version": "0.0.1",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/TheDarkXian/TDKToolkit.git"

@@ -1,0 +1,3 @@
+[submodule "Assets/MakeInHeaven"]
+	path = Assets/MakeInHeaven
+	url = https://github.com/TheDarkXian/TDKToolkit.git

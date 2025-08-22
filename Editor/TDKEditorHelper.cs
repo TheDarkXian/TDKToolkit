@@ -15,5 +15,12 @@ public class TDKEditorHelper : Editor
 
 }
 
+public static class TDKEditorLoader
+{
+    public const string HeadMeanu = "TDKToolkit/";
+    public const string CreateMeanu = "Assets/Create/TDK/";
 
+
+
+}
 

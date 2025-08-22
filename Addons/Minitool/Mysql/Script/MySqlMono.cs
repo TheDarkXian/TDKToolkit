@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MySql;
@@ -8,21 +8,21 @@ using System.Data;
 
 public class MySqlMono : MonoBehaviour
 {
-    #region Êı¾İ¿âÉèÖÃ
-    [FoldoutGroup("Êı¾İ¿âÁ¬½ÓÉèÖÃ")]
+    #region æ•°æ®åº“è®¾ç½®
+    [FoldoutGroup("æ•°æ®åº“è¿æ¥è®¾ç½®")]
     public string ip;
-    [FoldoutGroup("Êı¾İ¿âÁ¬½ÓÉèÖÃ")]
+    [FoldoutGroup("æ•°æ®åº“è¿æ¥è®¾ç½®")]
     public string port;
-    [FoldoutGroup("Êı¾İ¿âÁ¬½ÓÉèÖÃ")]
+    [FoldoutGroup("æ•°æ®åº“è¿æ¥è®¾ç½®")]
     public string user;
-    [FoldoutGroup("Êı¾İ¿âÁ¬½ÓÉèÖÃ")]
+    [FoldoutGroup("æ•°æ®åº“è¿æ¥è®¾ç½®")]
     public string databse;
-    [FoldoutGroup("Êı¾İ¿âÁ¬½ÓÉèÖÃ")]
+    [FoldoutGroup("æ•°æ®åº“è¿æ¥è®¾ç½®")]
     public string password;
-    [FoldoutGroup("Êı¾İ¿âÁ¬½ÓÉèÖÃ")]
+    [FoldoutGroup("æ•°æ®åº“è¿æ¥è®¾ç½®")]
     public string charset="utf8";
-    [FoldoutGroup("Êı¾İ¿âÁ¬½ÓÉèÖÃ")]
-    [Button("Á¬½ÓÊı¾İ¿â")]
+    [FoldoutGroup("æ•°æ®åº“è¿æ¥è®¾ç½®")]
+    [Button("è¿æ¥æ•°æ®åº“")]
     [HideIf("connection")]
     public void ConnectSql() {
         CloseSql();
@@ -30,8 +30,8 @@ public class MySqlMono : MonoBehaviour
                 (ip, port, user, databse, password, charset);
     
     }
-    [FoldoutGroup("Êı¾İ¿âÁ¬½ÓÉèÖÃ")]
-    [Button("¹Ø±ÕÊı¾İ¿â")]
+    [FoldoutGroup("æ•°æ®åº“è¿æ¥è®¾ç½®")]
+    [Button("å…³é—­æ•°æ®åº“")]
     [ShowIf("connection")]
     public void CloseSql() {
 
@@ -43,14 +43,14 @@ public class MySqlMono : MonoBehaviour
     }
     MySqlConnection connection;
 #endregion
-    #region ÔöÉ¾¸Ä²é
+    #region å¢åˆ æ”¹æŸ¥
 
-    [FoldoutGroup("²éÑ¯Êı¾İ")]
+    [FoldoutGroup("æŸ¥è¯¢æ•°æ®")]
     public string searchtable;
-    [FoldoutGroup("²éÑ¯Êı¾İ")]
+    [FoldoutGroup("æŸ¥è¯¢æ•°æ®")]
     public string selectKey;
-    [FoldoutGroup("²éÑ¯Êı¾İ")]
-    [Button("²éÑ¯Êı¾İ")]
+    [FoldoutGroup("æŸ¥è¯¢æ•°æ®")]
+    [Button("æŸ¥è¯¢æ•°æ®")]
     [ShowIf("connection")]
     public void searchData() {
         string getstr = "";
@@ -67,18 +67,18 @@ public class MySqlMono : MonoBehaviour
                 getstr += "\n";
             }
         }
-            DebugstrWriteLine("²éÑ¯Êı¾İ", getstr);
+            DebugstrWriteLine("æŸ¥è¯¢æ•°æ®", getstr);
     }
 
 
-    [FoldoutGroup("Ìí¼ÓÊı¾İ")]
+    [FoldoutGroup("æ·»åŠ æ•°æ®")]
     public string addtable;
-    [FoldoutGroup("Ìí¼ÓÊı¾İ")]
+    [FoldoutGroup("æ·»åŠ æ•°æ®")]
     public string addkey;
-    [FoldoutGroup("Ìí¼ÓÊı¾İ")]
+    [FoldoutGroup("æ·»åŠ æ•°æ®")]
     public string addvalue;
-    [FoldoutGroup("Ìí¼ÓÊı¾İ")]
-    [Button("Ìí¼ÓÊı¾İ")]
+    [FoldoutGroup("æ·»åŠ æ•°æ®")]
+    [Button("æ·»åŠ æ•°æ®")]
     [ShowIf("connection")]
     public void addData() {
 
@@ -87,24 +87,24 @@ public class MySqlMono : MonoBehaviour
         if (result <= 0)
         {
 
-            getstr ="Ê§°ÜÁË"+ addtable + "±íÖĞ¿ÉÄÜÒÑ¾­´æÔÚ" + addkey + " " + addvalue;
+            getstr ="å¤±è´¥äº†"+ addtable + "è¡¨ä¸­å¯èƒ½å·²ç»å­˜åœ¨" + addkey + " " + addvalue;
         }
         else {
 
-            getstr = addtable + "Ìí¼Ó³É¹¦!";
+            getstr = addtable + "æ·»åŠ æˆåŠŸ!";
         }
-        DebugstrWriteLine("[Ìí¼ÓÊı¾İ]",getstr);
+        DebugstrWriteLine("[æ·»åŠ æ•°æ®]",getstr);
     }
 
 
-    [FoldoutGroup("É¾³ıÊı¾İ")]
+    [FoldoutGroup("åˆ é™¤æ•°æ®")]
     public string deletetable;
-    [FoldoutGroup("É¾³ıÊı¾İ")]
+    [FoldoutGroup("åˆ é™¤æ•°æ®")]
     public string deletetargetkey;
-    [FoldoutGroup("É¾³ıÊı¾İ")]
+    [FoldoutGroup("åˆ é™¤æ•°æ®")]
     public string deletetargetvalue;
-    [FoldoutGroup("É¾³ıÊı¾İ")]
-    [Button("É¾³ıÊı¾İ")]
+    [FoldoutGroup("åˆ é™¤æ•°æ®")]
+    [Button("åˆ é™¤æ•°æ®")]
     [ShowIf("connection")]
     public void Deletedata() {
 
@@ -113,29 +113,29 @@ public class MySqlMono : MonoBehaviour
         if (result <= 0)
         {
 
-            getstr = "Ê§°ÜÁË" + deletetable + "±íÖĞ¿ÉÄÜ²»´æÔÚ" + deletetargetkey+" "+ deletetargetvalue;
+            getstr = "å¤±è´¥äº†" + deletetable + "è¡¨ä¸­å¯èƒ½ä¸å­˜åœ¨" + deletetargetkey+" "+ deletetargetvalue;
         }
         else
         {
 
-            getstr = deletetable + "É¾³ı³É¹¦!";
+            getstr = deletetable + "åˆ é™¤æˆåŠŸ!";
         }
 
-        DebugstrWriteLine("[É¾³ıÊı¾İ]", getstr);
+        DebugstrWriteLine("[åˆ é™¤æ•°æ®]", getstr);
 
     }
 
 
-    [FoldoutGroup("¸üĞÂÊı¾İ")]
+    [FoldoutGroup("æ›´æ–°æ•°æ®")]
     public string updatetable;
-    [FoldoutGroup("¸üĞÂÊı¾İ")]
+    [FoldoutGroup("æ›´æ–°æ•°æ®")]
     public string updatekeylist;
-    [FoldoutGroup("¸üĞÂÊı¾İ")]
+    [FoldoutGroup("æ›´æ–°æ•°æ®")]
     public string updatevaluelist;
-    [FoldoutGroup("¸üĞÂÊı¾İ")]
+    [FoldoutGroup("æ›´æ–°æ•°æ®")]
     public string updatevalueTarget;
-    [FoldoutGroup("¸üĞÂÊı¾İ")]
-    [Button("¸üĞÂÊı¾İ")]
+    [FoldoutGroup("æ›´æ–°æ•°æ®")]
+    [Button("æ›´æ–°æ•°æ®")]
     [ShowIf("connection")]
     public void UpdateValue() {
 
@@ -144,26 +144,26 @@ public class MySqlMono : MonoBehaviour
         if (result <= 0)
         {
 
-            getstr = "Ê§°ÜÁË" + updatetable + "±íÖĞ¿ÉÄÜ²»´æÔÚ" + updatevalueTarget;
+            getstr = "å¤±è´¥äº†" + updatetable + "è¡¨ä¸­å¯èƒ½ä¸å­˜åœ¨" + updatevalueTarget;
         }
         else
         {
 
-            getstr = updatetable + "¸üĞÂÊı¾İ³É¹¦!";
+            getstr = updatetable + "æ›´æ–°æ•°æ®æˆåŠŸ!";
         }
-        DebugstrWriteLine("[¸üĞÂÊı¾İ]", getstr);
+        DebugstrWriteLine("[æ›´æ–°æ•°æ®]", getstr);
 
 
     }
     #endregion
 
-    #region ±í
-    [FoldoutGroup("Ìí¼ÓÒ»¸öÁĞ")]
+    #region è¡¨
+    [FoldoutGroup("æ·»åŠ ä¸€ä¸ªåˆ—")]
     public string addtablename;
-    [FoldoutGroup("Ìí¼ÓÒ»¸öÁĞ")]
+    [FoldoutGroup("æ·»åŠ ä¸€ä¸ªåˆ—")]
     public string addtablecolkeyname;
-    [FoldoutGroup("Ìí¼ÓÒ»¸öÁĞ")]
-    [Button("Ìí¼ÓÁĞ")]
+    [FoldoutGroup("æ·»åŠ ä¸€ä¸ªåˆ—")]
+    [Button("æ·»åŠ åˆ—")]
     [ShowIf("connection")]
     public void AddAColToTable() {
 
@@ -172,32 +172,32 @@ public class MySqlMono : MonoBehaviour
         result = MySqlStatic.AddanColumn(connection, addtablename, addtablecolkeyname);
             if (result <= 0)
             {
-                getstr = "Ìí¼ÓÊ§°ÜÁË,¿ÉÄÜÔç¾ÍÓĞÕâ¸öÁĞÁË";
+                getstr = "æ·»åŠ å¤±è´¥äº†,å¯èƒ½æ—©å°±æœ‰è¿™ä¸ªåˆ—äº†";
 
             }
             else { 
             
-                getstr = addtablename+"Ìí¼Ó³É¹¦ÁËÁĞ "+ addtablecolkeyname;
+                getstr = addtablename+"æ·»åŠ æˆåŠŸäº†åˆ— "+ addtablecolkeyname;
         }
 
 
-        DebugstrWriteLine("[Ìí¼ÓÒ»¸öÁĞ]",getstr);
+        DebugstrWriteLine("[æ·»åŠ ä¸€ä¸ªåˆ—]",getstr);
     }
-    [FoldoutGroup("É¾³ıÒ»¸öÁĞ")]
+    [FoldoutGroup("åˆ é™¤ä¸€ä¸ªåˆ—")]
     public string deletetablename;
-    [FoldoutGroup("É¾³ıÒ»¸öÁĞ")]
+    [FoldoutGroup("åˆ é™¤ä¸€ä¸ªåˆ—")]
     public string deletetablecolkeyname;
-    [FoldoutGroup("É¾³ıÒ»¸öÁĞ")]
-    [Button("É¾³ıÁĞ")]
+    [FoldoutGroup("åˆ é™¤ä¸€ä¸ªåˆ—")]
+    [Button("åˆ é™¤åˆ—")]
     [ShowIf("connection")]
     public void DeleteAColToTable()
     {
 
         int reslut =MySqlStatic.DeleteColumn(connection,deletetablename,deletetablecolkeyname);
         string getstr = "";
-        if (reslut > 0) { getstr = "É¾³ı³É¹¦ÁËÕâ¸öÁĞ" + deletetablecolkeyname; } else { getstr = "É¾³ıÊ§°ÜÁË£¬¿ÉÄÜ¸ù±¾¾ÍÃ»ÓĞÕâ¸öÁĞ"; }
+        if (reslut > 0) { getstr = "åˆ é™¤æˆåŠŸäº†è¿™ä¸ªåˆ—" + deletetablecolkeyname; } else { getstr = "åˆ é™¤å¤±è´¥äº†ï¼Œå¯èƒ½æ ¹æœ¬å°±æ²¡æœ‰è¿™ä¸ªåˆ—"; }
 
-        DebugstrWriteLine("[É¾³ıÒ»¸öÁĞ]", getstr);
+        DebugstrWriteLine("[åˆ é™¤ä¸€ä¸ªåˆ—]", getstr);
     }
 
     #endregion
@@ -209,11 +209,11 @@ public class MySqlMono : MonoBehaviour
     }
 
 
-    [FoldoutGroup("Êı¾İ¿âDebugÃæ°å")]
+    [FoldoutGroup("æ•°æ®åº“Debugé¢æ¿")]
     [Multiline(10)]
     public string Debugstr;
-    [FoldoutGroup("Êı¾İ¿âDebugÃæ°å")]
-    [Button("ÇåÀíÃæ°å")]
+    [FoldoutGroup("æ•°æ®åº“Debugé¢æ¿")]
+    [Button("æ¸…ç†é¢æ¿")]
     public void ClearDebugstr()
     {
         Debugstr = "";

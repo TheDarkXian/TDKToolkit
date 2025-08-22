@@ -1,4 +1,4 @@
-#if UNITY_EDITOR
+ï»¿#if UNITY_EDITOR
 using UnityEditorInternal;
 #endif
 using UnityEngine;
@@ -9,10 +9,10 @@ namespace TDKToolkit
     {
 #if UNITY_EDITOR
 
-        public enum ÍØÆË×é¼ş
+        public enum æ‹“æ‰‘ç»„ä»¶
         {
-            »­²¼,
-            ±ä»»Æ÷
+            ç”»å¸ƒ,
+            å˜æ¢å™¨
         }
         private void OnValidate()
         {
@@ -21,12 +21,12 @@ namespace TDKToolkit
         public bool Debuglog;
         public static bool enableDebug;
         [EnumToggleButtons]
-        public ÍØÆË×é¼ş op;
-        [BoxGroup("½á¹¹ÍØÆËÆ÷")]
-        [Title("Ô´Í·")]
+        public æ‹“æ‰‘ç»„ä»¶ op;
+        [BoxGroup("ç»“æ„æ‹“æ‰‘å™¨")]
+        [Title("æºå¤´")]
         public Transform topuSource;
-        [BoxGroup("½á¹¹ÍØÆËÆ÷")]
-        [Title("Ä¿±ê")]
+        [BoxGroup("ç»“æ„æ‹“æ‰‘å™¨")]
+        [Title("ç›®æ ‡")]
         public Transform topuTarget;
         bool ishavesourceAandTarget
         {
@@ -36,8 +36,8 @@ namespace TDKToolkit
             }
         }
 
-        [BoxGroup("½á¹¹ÍØÆËÆ÷")]
-        [Button("½á¹¹ÍØÆËÆ÷")]
+        [BoxGroup("ç»“æ„æ‹“æ‰‘å™¨")]
+        [Button("ç»“æ„æ‹“æ‰‘å™¨")]
         [ShowIf("ishavesourceAandTarget")]
         public void TOPURect()
         {
@@ -60,16 +60,16 @@ namespace TDKToolkit
             }
 
         }
-        //ÍØÆË×ÓÊ÷£¬µİ¹éµ÷ÓÃ
+        //æ‹“æ‰‘å­æ ‘ï¼Œé€’å½’è°ƒç”¨
         void topuChlid(Transform sourcetemp, Transform targettemp)
         {
 
             switch (op)
             {
-                case ÍØÆË×é¼ş.»­²¼:
+                case æ‹“æ‰‘ç»„ä»¶.ç”»å¸ƒ:
                     Topologis<RectTransform>(sourcetemp, targettemp);
                     break;
-                case ÍØÆË×é¼ş.±ä»»Æ÷:
+                case æ‹“æ‰‘ç»„ä»¶.å˜æ¢å™¨:
                     Topologis<Transform>(sourcetemp, targettemp);
 
                     break;
@@ -80,7 +80,7 @@ namespace TDKToolkit
 
         }
 
-        //½ÓÏÂÀ´¿ªÊ¼COPY
+        //æ¥ä¸‹æ¥å¼€å§‹COPY
         static void CopyThenPaste<T>(Transform source, Transform target) where T : Component
         {
 
@@ -100,10 +100,10 @@ namespace TDKToolkit
                     if (sourceComponent == null)
                     {
 
-                        Debug.Log(source + " ÕâÀïÃ»ÓĞÕâ¸ö×é¼ş " + typeof(T));
+                        Debug.Log(source + " è¿™é‡Œæ²¡æœ‰è¿™ä¸ªç»„ä»¶ " + typeof(T));
 
                     }
-                    if (targetComponent == null) { Debug.Log(target + " ÕâÀïÃ»ÓĞÕâ¸ö×é¼ş " + typeof(T)); }
+                    if (targetComponent == null) { Debug.Log(target + " è¿™é‡Œæ²¡æœ‰è¿™ä¸ªç»„ä»¶ " + typeof(T)); }
                 }
 
             }

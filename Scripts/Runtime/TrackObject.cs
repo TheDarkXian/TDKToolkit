@@ -1,4 +1,4 @@
-// using DG.Tweening;
+﻿// using DG.Tweening;
 // using Sirenix.OdinInspector;
 // using System.Collections;
 // using System.Collections.Generic;
@@ -8,13 +8,13 @@
 
 
 //     /// <summary>
-//     /// ����һ�����ٽű�
+//     /// 锟斤拷锟斤拷一锟斤拷锟斤拷锟劫脚憋拷
 //     /// </summary>
 //     [ExecuteAlways]
 //     public class TrackObject : MonoBehaviour
 //     {
 //         [SerializeField] bool runInEditor = false;
-//         //���ö���    
+//         //锟斤拷锟矫讹拷锟斤拷    
 //         [SerializeField] Transform _agent;
 //         public Transform Agent
 //         {
@@ -26,30 +26,30 @@
 //             }
 //         }
 
-//         //���ø���λ��
-//         [FoldoutGroup("λ�ø�������")]
+//         //锟斤拷锟矫革拷锟斤拷位锟斤拷
+//         [FoldoutGroup("位锟矫革拷锟斤拷锟斤拷锟斤拷")]
 //         public bool trackPos = true;
-//         //����ƫ��
-//         [FoldoutGroup("λ�ø�������")]
+//         //锟斤拷锟斤拷偏锟斤拷
+//         [FoldoutGroup("位锟矫革拷锟斤拷锟斤拷锟斤拷")]
 //         [ShowIf("trackPos")]
 //         public offseter positionOffset = offseter.one;
-//         //����Ŀ��
-//         [FoldoutGroup("λ�ø�������")]
+//         //锟斤拷锟斤拷目锟斤拷
+//         [FoldoutGroup("位锟矫革拷锟斤拷锟斤拷锟斤拷")]
 //         [ShowIf("trackPos")]
 //         public Transform posTarget;
 
-//         [FoldoutGroup("��ת����")]
+//         [FoldoutGroup("锟斤拷转锟斤拷锟斤拷")]
 //         public RoateTrackMode roateMode;
-//         [FoldoutGroup("��ת����")]
+//         [FoldoutGroup("锟斤拷转锟斤拷锟斤拷")]
 //         [HideIf("roateMode", RoateTrackMode.None)]
 //         public offseter roateOffset = offseter.one;
-//         [FoldoutGroup("��ת����")]
+//         [FoldoutGroup("锟斤拷转锟斤拷锟斤拷")]
 //         [ShowIf("roateMode", RoateTrackMode.FaceTarget)]
 //         public bool followMainCamera = false;
-//         [FoldoutGroup("��ת����")]
+//         [FoldoutGroup("锟斤拷转锟斤拷锟斤拷")]
 //         [ShowIf("roateMode", RoateTrackMode.SameWithTarget)]
 //         public Transform roateTarget;
-//         [FoldoutGroup("��ת����")]
+//         [FoldoutGroup("锟斤拷转锟斤拷锟斤拷")]
 //         [ShowIf("@roateMode== RoateTrackMode.FaceTarget&&!followMainCamera")]
 //         public Transform faceTarget;
 
@@ -147,7 +147,7 @@
 //                 }
 //             }
 
-//             // ���ؼӷ�������
+//             // 锟斤拷锟截加凤拷锟斤拷锟斤拷锟斤拷
 //             public static Vector3 operator +(Vector3 v, offseter o)
 //             {
 //                 return new Vector3(
@@ -159,7 +159,7 @@
 
 //             public static Vector3 operator +(offseter o, Vector3 v)
 //             {
-//                 return v + o; // �������������
+//                 return v + o; // 锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟继
 //             }
 
 //             public static Vector3 operator *(offseter o, Vector3 v)

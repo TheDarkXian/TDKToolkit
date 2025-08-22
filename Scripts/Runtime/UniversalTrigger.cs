@@ -1,4 +1,4 @@
-using Sirenix.OdinInspector;
+锘縰sing Sirenix.OdinInspector;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -25,18 +25,18 @@ public class UniversalTrigger : MonoBehaviour
 
         thisCollider.isTrigger = true;
     }
-    public enum 识别模式
+    public enum 璇嗗埆妯″紡
     {
-        引用识别,
-        名称识别,
+        寮曠敤璇嗗埆,
+        鍚嶇О璇嗗埆,
     }
     [EnumToggleButtons]
-    public 识别模式 regtionModle;
+    public 璇嗗埆妯″紡 regtionModle;
 
-    [ShowIf("regtionModle", 识别模式.引用识别)]
+    [ShowIf("regtionModle", 璇嗗埆妯″紡.寮曠敤璇嗗埆)]
     [ListDrawerSettings(CustomAddFunction = "CustomAdd")]
     public List<Transform> targetList;
-    [ShowIf("regtionModle", 识别模式.名称识别)]
+    [ShowIf("regtionModle", 璇嗗埆妯″紡.鍚嶇О璇嗗埆)]
     public List<string> strList;
     void CustomAdd()
     {
@@ -50,7 +50,7 @@ public class UniversalTrigger : MonoBehaviour
         bool isTarget = false;
         switch (regtionModle)
         {
-            case 识别模式.引用识别:
+            case 璇嗗埆妯″紡.寮曠敤璇嗗埆:
                 {
                     int count = targetList.Count;
                     for (int i = 0; i < count; i++)
@@ -63,7 +63,7 @@ public class UniversalTrigger : MonoBehaviour
 
                     break;
                 }
-            case 识别模式.名称识别:
+            case 璇嗗埆妯″紡.鍚嶇О璇嗗埆:
                 {
                     int count = strList.Count;
                     for (int i = 0; i < count; i++)

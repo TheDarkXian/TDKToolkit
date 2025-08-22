@@ -21,7 +21,6 @@ namespace Koneski.StateMachine
         public abstract void OnUpdate();
 
         public StateMachine StateMachine { get; private set; } = new StateMachine();
-
         private void Start()
         {
             this.OnStart();
